@@ -1,0 +1,300 @@
+@import 'variables';
+
+// --- ELEMENTO PARA EXTEND ---
+%card-producto {
+    border: 1px solid $color-borde-gris;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.05); // Agregamos una sombra sutil para distinguirlo
+}
+// ----------------------------
+
+/* estilos generales */
+body {
+    background-color: $color-fondo-oscuro;
+    margin: 0; 
+}
+
+/* -------------------------------------------------------------------- */
+/* --- HEADER: Estructura (Base de PC/Tablet) --- */
+/* -------------------------------------------------------------------- */
+header {
+    display: flex;
+    flex-direction: column;
+    background-color: $color-header-oscuro; 
+
+    /* 🟢 BARRA SUPERIOR - FLEXBOX */
+    .barra-superior {
+        display: flex;
+        justify-content: space-between; 
+        align-items: center; 
+        padding: 10px 20px;
+    }
+
+    /* Logo */
+    .logo {
+        width: 15%; // Base PC
+        height: auto;
+        padding: 10px 20px;
+
+        /* MEDIA QUERY: Logo en Móvil */
+        @media (max-width: 768px) { 
+            width: 35%;
+        }
+    }
+    
+    /* Mostrar el botón hamburguesa */
+    .navbar-toggler {
+        @media (max-width: 768px) { 
+            display: block !important; 
+        }
+    }
+
+    /* Menú de Navegación */
+    #menuRelic {
+        
+        /* MEDIA QUERY: Contenedor colapsado en Móvil */
+        @media (max-width: 768px) { 
+            width: 100%; 
+        }
+
+        ul {
+            flex-direction: row; /* Base PC: Fila */
+            padding: 0;
+            margin: 0;
+            
+            /* MEDIA QUERY: Estilos del UL en Móvil */
+            @media (max-width: 768px) { 
+                flex-direction: column; /* Apila verticalmente */
+                margin-top: 15px !important; 
+                padding-right: 20px; 
+            }
+            
+            li {
+                list-style: none;
+                margin-left: 15px; /* Espacio PC */
+                text-align: left; 
+                padding: 0;
+                border: none;
+                
+                /* MEDIA QUERY: Estilos del LI en Móvil */
+                @media (max-width: 768px) { 
+                    text-align: right; 
+                    margin: 5px 0 5px auto !important; /* Empuja el ítem a la derecha */
+                    padding: 8px 15px;
+                    background-color: transparent; 
+                    border: 1px solid $color-borde-claro; 
+                }
+
+                a {
+                    text-decoration: none; 
+                    color: $color-texto-claro; 
+                    font-family: $fuente-satoshi, light; 
+                    display: block; 
+                    padding: 0; 
+                    background-color: transparent; 
+                }
+
+                &:hover a {
+                    text-transform: uppercase;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+    
+    /* Banner */
+    .banner {
+        width: 100%;
+        height: auto;
+        margin: 0; 
+        padding: 0;
+        display: block; 
+    }
+
+    /* Titulo h1 */
+    h1 {
+        font-size: 800%; // Base PC
+        text-align: center;
+        color: $color-texto-oscuro;
+        font-family: $fuente-satoshi, black;
+        background-color: $color-texto-claro;
+        padding: 15px 0;
+        margin: -10px 0 0 0; 
+        max-width: 100%;
+        
+        /* MEDIA QUERY: Titulo h1 en Móvil */
+        @media (max-width: 768px) { 
+            font-size: 300%; 
+            padding: 10px 0;
+            margin: -5px 0 0 0; 
+        }
+    }
+}
+
+/* -------------------------------------------------------------------- */
+/* --- MAIN: Contenido Principal --- */
+/* -------------------------------------------------------------------- */
+main {
+    text-align: center;
+
+    /* Estilos de párrafos (genérico, para productos y contacto) */
+    p {
+        text-align: center;
+        color: $color-texto-claro;
+        font-family: $fuente-satoshi, light;
+        margin: 5px 0;
+    }
+
+    /* Estilos de títulos de sección (h2) */
+    h2 {
+        font-size: 400%; // Base PC
+        text-align: left;
+        color: $color-texto-claro;
+        font-family: $fuente-satoshi, black;
+        padding: 10px 20px;
+        margin: 40px 0 20px 0;
+        
+        /* MEDIA QUERY: h2 en Móvil */
+        @media (max-width: 768px) { 
+            font-size: 200%; 
+            text-align: center; 
+            padding: 10px;
+            margin: 20px 0 10px 0;
+        }
+    }
+    
+    /* Contenedores de productos (section > div) - SOLO para página productos */
+    section > div {
+        display: flex;
+        justify-content: space-around; 
+        flex-wrap: wrap; 
+        align-items: flex-start; 
+        margin-bottom: 40px;
+
+        /* MEDIA QUERY: Contenedores en Móvil */
+        @media (max-width: 768px) { 
+            flex-direction: column; 
+            margin-bottom: 20px;
+        }
+
+/* Producto individual (div > div) */
+        > div {
+            @extend %card-producto; // Esto reemplaza la línea 'border'
+            flex-basis: 45%; // Base PC (dos por fila)
+            padding: 15px; 
+            margin: 10px;
+            text-align: center; 
+
+            /* MEDIA QUERY: Producto individual en Móvil */
+            @media (max-width: 768px) { 
+                flex-basis: 90%; 
+                max-width: 90%; 
+                margin: 10px auto; 
+                padding: 10px; 
+            }
+            
+            img {
+                width: 100%; 
+                height: auto;
+            }
+        }
+    }
+
+    /* Secciones de envíos y pagos (.info-pagos) - SOLO para página productos */
+    .info-pagos {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 20px 0;
+        border-top: 2px dashed $color-texto-claro;
+        border-bottom: 2px dashed $color-texto-claro;
+        margin-top: 40px;
+
+        /* MEDIA QUERY: Contenedor .info-pagos en Móvil */
+        @media (max-width: 768px) { 
+            flex-direction: column; 
+            padding: 10px 0;
+            margin-top: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 200%; // Base PC
+            margin: 0 10px;
+            
+            /* MEDIA QUERY: h2 dentro de .info-pagos en Móvil */
+            @media (max-width: 768px) { 
+                font-size: 150%; 
+                margin: 5px 0;
+            }
+        }
+    }
+    
+    /* --- PÁGINA DE CONTACTO (.contenido-contacto) --- */
+    .contenido-contacto {
+        max-width: 800px; 
+        margin: 40px auto; 
+        padding: 0 20px;
+        text-align: center;
+
+        .imagen-principal-contacto {
+            max-width: 100%; 
+            height: auto; 
+            display: block;
+            margin: 20px auto; 
+        }
+        
+        p {
+            text-align: left; 
+            margin-bottom: 40px;
+        }
+    }
+
+    /* --- Seccion de políticas (.politicas) - GRID --- */
+    .politicas { // Usamos la nueva clase en lugar de :last-child
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); // Base PC
+        gap: 15px;
+        padding: 20px;
+        margin-top: 40px;
+
+        /* MEDIA QUERY: Políticas en Móvil */
+        @media (max-width: 768px) { 
+            grid-template-columns: 1fr; /* Una sola columna */
+            gap: 10px;
+            padding: 10px;
+            margin-top: 20px;
+        }
+
+        /* Enlaces de políticas */
+        h2 {
+            text-align: center;
+            margin: 0;
+            
+            a {
+                text-decoration: none;
+                color: $color-texto-claro;
+                font-family: $fuente-satoshi, black;
+                font-size: 1.2rem;
+                
+                /* MEDIA QUERY: Enlaces de políticas en Móvil */
+                @media (max-width: 768px) { 
+                    font-size: 1rem; 
+                }
+            }
+        }
+    }
+}
+
+/* -------------------------------------------------------------------- */
+/* --- FOOTER: Pie de página --- */
+/* -------------------------------------------------------------------- */
+footer {
+    display: grid;
+    grid-template-columns: 1fr; 
+    gap: 8px; 
+    padding: 20px;
+    background-color: $color-header-oscuro; 
+    text-align: center; 
+    color: $color-texto-claro;
+    font-family: $fuente-satoshi, light;
+}

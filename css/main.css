@@ -1,0 +1,309 @@
+@charset "UTF-8";
+/* Colores */
+/* Tipografía */
+/* estilos generales */
+body {
+  background-color: #242424;
+  margin: 0;
+}
+
+/* -------------------------------------------------------------------- */
+/* --- HEADER: Estructura (Base de PC/Tablet) --- */
+/* -------------------------------------------------------------------- */
+header {
+  display: flex;
+  flex-direction: column;
+  background-color: #333;
+  /* 🟢 BARRA SUPERIOR - FLEXBOX */
+}
+header .barra-superior {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+header {
+  /* Logo */
+}
+header .logo {
+  width: 15%;
+  height: auto;
+  padding: 10px 20px;
+  /* MEDIA QUERY: Logo en Móvil */
+}
+@media (max-width: 768px) {
+  header .logo {
+    width: 35%;
+  }
+}
+header {
+  /* Mostrar el botón hamburguesa */
+}
+@media (max-width: 768px) {
+  header .navbar-toggler {
+    display: block !important;
+  }
+}
+header {
+  /* Menú de Navegación */
+}
+header #menuRelic {
+  /* MEDIA QUERY: Contenedor colapsado en Móvil */
+}
+@media (max-width: 768px) {
+  header #menuRelic {
+    width: 100%;
+  }
+}
+header #menuRelic ul {
+  flex-direction: row; /* Base PC: Fila */
+  padding: 0;
+  margin: 0;
+  /* MEDIA QUERY: Estilos del UL en Móvil */
+}
+@media (max-width: 768px) {
+  header #menuRelic ul {
+    flex-direction: column; /* Apila verticalmente */
+    margin-top: 15px !important;
+    padding-right: 20px;
+  }
+}
+header #menuRelic ul li {
+  list-style: none;
+  margin-left: 15px; /* Espacio PC */
+  text-align: left;
+  padding: 0;
+  border: none;
+  /* MEDIA QUERY: Estilos del LI en Móvil */
+}
+@media (max-width: 768px) {
+  header #menuRelic ul li {
+    text-align: right;
+    margin: 5px 0 5px auto !important; /* Empuja el ítem a la derecha */
+    padding: 8px 15px;
+    background-color: transparent;
+    border: 1px solid #D5D7D3;
+  }
+}
+header #menuRelic ul li a {
+  text-decoration: none;
+  color: #E6E7EB;
+  font-family: satoshi variable, sans-serif, light;
+  display: block;
+  padding: 0;
+  background-color: transparent;
+}
+header #menuRelic ul li:hover a {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+header {
+  /* Banner */
+}
+header .banner {
+  width: 100%;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  display: block;
+}
+header {
+  /* Titulo h1 */
+}
+header h1 {
+  font-size: 800%;
+  text-align: center;
+  color: #242424;
+  font-family: satoshi variable, sans-serif, black;
+  background-color: #E6E7EB;
+  padding: 15px 0;
+  margin: -10px 0 0 0;
+  max-width: 100%;
+  /* MEDIA QUERY: Titulo h1 en Móvil */
+}
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 300%;
+    padding: 10px 0;
+    margin: -5px 0 0 0;
+  }
+}
+
+/* -------------------------------------------------------------------- */
+/* --- MAIN: Contenido Principal --- */
+/* -------------------------------------------------------------------- */
+main {
+  text-align: center;
+  /* Estilos de párrafos (genérico, para productos y contacto) */
+}
+main p {
+  text-align: center;
+  color: #E6E7EB;
+  font-family: satoshi variable, sans-serif, light;
+  margin: 5px 0;
+}
+main {
+  /* Estilos de títulos de sección (h2) */
+}
+main h2 {
+  font-size: 400%;
+  text-align: left;
+  color: #E6E7EB;
+  font-family: satoshi variable, sans-serif, black;
+  padding: 10px 20px;
+  margin: 40px 0 20px 0;
+  /* MEDIA QUERY: h2 en Móvil */
+}
+@media (max-width: 768px) {
+  main h2 {
+    font-size: 200%;
+    text-align: center;
+    padding: 10px;
+    margin: 20px 0 10px 0;
+  }
+}
+main {
+  /* Contenedores de productos (section > div) - SOLO para página productos */
+}
+main section > div {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  margin-bottom: 40px;
+  /* MEDIA QUERY: Contenedores en Móvil */
+}
+@media (max-width: 768px) {
+  main section > div {
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+}
+main section > div {
+  /* Producto individual (div > div) */
+}
+main section > div > div {
+  flex-basis: 45%;
+  padding: 15px;
+  margin: 10px;
+  border: 1px solid #444;
+  text-align: center;
+  /* MEDIA QUERY: Producto individual en Móvil */
+}
+@media (max-width: 768px) {
+  main section > div > div {
+    flex-basis: 90%;
+    max-width: 90%;
+    margin: 10px auto;
+    padding: 10px;
+  }
+}
+main section > div > div img {
+  width: 100%;
+  height: auto;
+}
+main {
+  /* Secciones de envíos y pagos (.info-pagos) - SOLO para página productos */
+}
+main .info-pagos {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px 0;
+  border-top: 2px dashed #E6E7EB;
+  border-bottom: 2px dashed #E6E7EB;
+  margin-top: 40px;
+  /* MEDIA QUERY: Contenedor .info-pagos en Móvil */
+}
+@media (max-width: 768px) {
+  main .info-pagos {
+    flex-direction: column;
+    padding: 10px 0;
+    margin-top: 20px;
+  }
+}
+main .info-pagos h2 {
+  text-align: center;
+  font-size: 200%;
+  margin: 0 10px;
+  /* MEDIA QUERY: h2 dentro de .info-pagos en Móvil */
+}
+@media (max-width: 768px) {
+  main .info-pagos h2 {
+    font-size: 150%;
+    margin: 5px 0;
+  }
+}
+main {
+  /* --- PÁGINA DE CONTACTO (.contenido-contacto) --- */
+}
+main .contenido-contacto {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0 20px;
+  text-align: center;
+}
+main .contenido-contacto .imagen-principal-contacto {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 20px auto;
+}
+main .contenido-contacto p {
+  text-align: left;
+  margin-bottom: 40px;
+}
+main {
+  /* --- Seccion de políticas (.politicas) - GRID --- */
+}
+main .politicas {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  padding: 20px;
+  margin-top: 40px;
+  /* MEDIA QUERY: Políticas en Móvil */
+}
+@media (max-width: 768px) {
+  main .politicas {
+    grid-template-columns: 1fr; /* Una sola columna */
+    gap: 10px;
+    padding: 10px;
+    margin-top: 20px;
+  }
+}
+main .politicas {
+  /* Enlaces de políticas */
+}
+main .politicas h2 {
+  text-align: center;
+  margin: 0;
+}
+main .politicas h2 a {
+  text-decoration: none;
+  color: #E6E7EB;
+  font-family: satoshi variable, sans-serif, black;
+  font-size: 1.2rem;
+  /* MEDIA QUERY: Enlaces de políticas en Móvil */
+}
+@media (max-width: 768px) {
+  main .politicas h2 a {
+    font-size: 1rem;
+  }
+}
+
+/* -------------------------------------------------------------------- */
+/* --- FOOTER: Pie de página --- */
+/* -------------------------------------------------------------------- */
+footer {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+  padding: 20px;
+  background-color: #333;
+  text-align: center;
+  color: #E6E7EB;
+  font-family: satoshi variable, sans-serif, light;
+}
+
+/*# sourceMappingURL=main.css.map */
